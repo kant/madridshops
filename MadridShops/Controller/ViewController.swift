@@ -22,61 +22,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsFake()
-//        let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsNSOperator()
-//        let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsNSURLSession()
-        
         if defaults.value(forKey: "saved") != nil{
             self.collectionShops.delegate = self
             self.collectionShops.dataSource = self
         }
-//        else{
-//            downloadShopsInteractor.execute(onSuccess: { (shops: Shops) in
-//                //todo ok
-//                self.shops = shops
-//
-//                let coreDataInteractor = SaveAllShopsImplementation()
-//                coreDataInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops:Shops) in
-//                    //una vez que graba en CoreData entonces carga collectionView
-//                    self.defaults.setValue(true, forKey: "saved")
-//                    self.defaults.synchronize()
-//                    self.collectionShops.delegate = self
-//                    self.collectionShops.dataSource = self //self porque ExtensionCollectionView es un extension de esta vista y ahí están los delegate y datasource
-//
-//                }, onError: { (error:Error) in
-//                    //
-//                })
-//
-//            }) { (error: Error) in
-//                //error
-//            }
-//        }
-        
-        
+
        //map
         self.locationManager.requestWhenInUseAuthorization()
-        //para tener actualizaciones de la ubicación del dispositivo
-//        self.locationManager.delegate = self
-//        self.locationManager.startUpdatingLocation()
         
         let madridLocation = CLLocation(latitude: 40.4384, longitude: -3.6970)
-//        let cuencaLocation = CLLocation(latitude: -2.8922671, longitude: -79.0594206)
-//        self.mapView.setCenter(madridLocation.coordinate, animated: true)
+
         
         let region = MKCoordinateRegion(center: madridLocation.coordinate, span: MKCoordinateSpanMake(0.05, 0.05))
         self.mapView.setRegion(region, animated: true)
-        
-//        let a1 = MapPin(coordinate: CLLocationCoordinate2D(latitude: 40.4384, longitude: -3.6970))
-//        a1.title = "Pin 1"
-////        a1.subtitle = "Subtitle 1"
-//        a1.shop = Shop(name: "tiendita")
-//        self.mapView.addAnnotation(a1)
-//
-//        let a2 = MapPin(coordinate: CLLocationCoordinate2D(latitude: 40.4839361, longitude: -3.5679515))
-//        a2.title = "Pin 2"
-////        a2.subtitle = "Subtitle 2"
-//        a2.shop = Shop(name: "Aeropuerto")
-//        self.mapView.addAnnotation(a2)
+    
 
         for i in 0..<self.fetchedResultsController.sections![0].numberOfObjects{
             let theShop = self.fetchedResultsController.object(at: IndexPath(row: i, section: 0))
@@ -100,11 +59,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showShopDetailSegue", let vcShopDetail = segue.destination as? ShopDetailViewController{
-//            let indexPath = self.collectionShops.indexPathsForSelectedItems![0]
+
             let shopCD = sender as! ShopCoreData
             vcShopDetail.shop = shopCoreDataToShop(shopCD: shopCD)
-//            vcShopDetail.shop = sender as? Shop
-            //la var sender = shop, se lo envía en performSegue desde didSelect
+
         }
     }
     
@@ -125,8 +83,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        // Edit the section name key path and cache name if appropriate.
-        // nil for section name key path means "no sections".
         _fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "Master")
 //        aFetchedResultsController.delegate = self
         
@@ -172,7 +128,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         }
         else {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-//            annotationView?.rightCalloutAccessoryView = detailButton
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             let a = annotation as! MapPin
             let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -184,11 +139,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         if let annotationView = annotationView {
             // Configure your annotation view here
-            
             annotationView.canShowCallout = true
-            annotationView.image = #imageLiteral(resourceName: "map-marker-icon")//UIImage(named: "marker")
+            annotationView.image = #imageLiteral(resourceName: "map-marker-icon")
             annotationView.contentMode = .scaleAspectFit
-//            annotationView.tintColor = UIColor.red
+
             
         }
         

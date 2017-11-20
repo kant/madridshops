@@ -21,7 +21,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-//         HUD.show(.progress)
         HUD.show(.label("Downloading shops \n Please wait for it  😎"))
         if isInternetOn(){
             if defaults.bool(forKey: "saved"){

@@ -31,9 +31,6 @@ func parseShops(data: Data) -> Shops{
             if let url = URL(string: urlImageMap), let data = NSData(contentsOf: url), let image = UIImage(data: data as Data){
                 shop.imageData = image
             }
-//            if let url = URL(string: shop.image), let data = NSData(contentsOf: url), let image = UIImage(data: data as Data){
-//                shop.imageData = image
-//            }
             
             if let urlLogo = URL(string: shop.logo), let dataLogo = NSData(contentsOf: urlLogo), let imageLogo = UIImage(data: dataLogo as Data){
                 shop.logoData = imageLogo

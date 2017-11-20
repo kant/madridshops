@@ -24,12 +24,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     //MARK: - Datasource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.shops?.count() ?? 0
         let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let shop = self.shops?.get(index: indexPath.row)
         let shop = self.fetchedResultsController.object(at: indexPath)
         performSegue(withIdentifier: "showShopDetailSegue", sender: shop)
     }

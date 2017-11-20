@@ -28,7 +28,6 @@ class ShopDetailViewController: UIViewController {
         }
         self.textShop.text = detailShop
         self.title = shop?.name
-//        self.shop?.image.loadImage(into: imageShop)
         
         if self.shop?.imageData != nil{
             self.imageShop.image = self.shop?.imageData!
