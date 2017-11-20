@@ -9,8 +9,6 @@ Requirements:
 1. When starting the App for the first time, if there's Internet connection it will download all information from the Shops access point (see below), including all images.
 2. The App will cache everything locally: images, data, etc. Even images of the maps. See below for tips
 3. Cache is never invalidated, so once everything has been saved, set a flag and never ever access to the network again
-
-1/7
 4. If there's no Internet connection a message will be shown to the user.
 5. While caching the App will show an Activity indicator or other loader. Until you finish caching you don't get to the Main menu.
 6. The app will have a main menu screen where we'll add one button & a logo. The button takes us to the list of shops.
