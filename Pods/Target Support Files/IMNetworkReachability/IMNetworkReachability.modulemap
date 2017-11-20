@@ -1,0 +1,6 @@
+framework module IMNetworkReachability {
+  umbrella header "IMNetworkReachability-umbrella.h"
+
+  export *
+  module * { export * }
+}

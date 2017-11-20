@@ -7,7 +7,20 @@
 		<key>MadridShops.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>30F4FE0F1FA3E1BA00D09F65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>30F4FE231FA3E1BA00D09F65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
