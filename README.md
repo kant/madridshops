@@ -3,7 +3,7 @@
 iOS application that shows information of Shops in Madrid, even when the user has no Internet connection
 Developed with Xcode 9.1 & Swift 4.
 
-## Requiremets
+## Requirements
 
 Requirements:
 1. When starting the App for the first time, if there's Internet connection it will download all information from the Shops access point (see below), including all images.
@@ -17,7 +17,7 @@ Requirements:
 9. All info should be read from a Core Data database
 10. If you tap on a pin in the map a callout will open with the logo +
 shop name. Taping the callout takes us to the detail shop screen.
-11. The map will be always centered in madrid, showing also the user
+11. The map will be always centered in Madrid, showing also the user
 location
 12. All data is at least in Spanish & English: should cache all and
 display in Spanish (if that's our phone's language) or English
